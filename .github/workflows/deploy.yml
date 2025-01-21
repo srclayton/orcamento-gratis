@@ -1,0 +1,47 @@
+name: "Deploy para VPS"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      #1 - Checkout do código
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      #2 - Configuração do Node.js no Github Actions
+      - name: "Build with Node.js"
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.17.0"
+
+      #4 - Instalação das dependências e build
+      - name: "Install dependencies"
+        run: npm install
+
+      - name: "Build"
+        run: npm run build
+
+      #5 - Transferir os arquivos para o servidor
+      - name: "Transfer build to VPS"
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "./build/*"
+          target: "/home/${{ secrets.SSH_USERNAME }}/dist"
+
+      #6 - Conectar ao servidor e copiar os arquivos
+      - name: "Copy files to directory"
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            sudo cp -r /home/${{ secrets.SSH_USERNAME }}/dist/build/* ${{ secrets.DIR}}
