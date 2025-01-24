@@ -14,16 +14,16 @@ function Form() {
 	return (
 		<form action="" className="border-2 shadow-2xl rounded-lg p-5">
 			<h2 className="text-2xl text-blue-800 font-bold">Dados do Emissor</h2>
-			<TwoColumns labels={issuerNameAndId} />
-			<ThreeColumns labels={issuerEmailAndPhone} />
-			<FiveColumns labels={issuerAddress} />
+			<TwoColumns data={issuerNameAndId} />
+			<ThreeColumns data={issuerEmailAndPhone} />
+			<FiveColumns data={issuerAddress} />
 			<div className="w-2/3 mx-auto py-10">
 				<hr />
 			</div>
 			<h2 className="text-2xl text-blue-800 font-bold">Dados do Cliente</h2>
-			<TwoColumns labels={clientNameAndId} />
-			<TwoColumns labels={clientEmailAndPhone} />
-			<FiveColumns labels={clientAddress} />
+			<TwoColumns data={clientNameAndId} />
+			<TwoColumns data={clientEmailAndPhone} />
+			<FiveColumns data={clientAddress} />
 			<div className="w-2/3 mx-auto py-10">
 				<hr />
 			</div>
