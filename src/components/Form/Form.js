@@ -9,6 +9,7 @@ import {
 	clientEmailAndPhone,
 	clientAddress,
 } from "./constants";
+import ProductInput from "../ProductInput/ProductInput";
 function Form() {
 	return (
 		<form action="" className="border-2 shadow-2xl rounded-lg p-5">
@@ -26,22 +27,8 @@ function Form() {
 			<div className="w-2/3 mx-auto py-10">
 				<hr />
 			</div>
-			{/* <h2 className="text-2xl text-blue-800 font-bold">Itens do Orçamento</h2>
-			<div className="flex flex-wrap gap-5 p-3">
-				<div className="w-full">
-					<label htmlFor="company" className="text-blue-800">
-						Produto / Serviço *
-					</label>
-					<input
-						type="text"
-						name="productService"
-						id="productService"
-						className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
-						require
-						placeholder="Produto ou serviço"
-					/>
-				</div>
-			</div> */}
+			<h2 className="text-2xl text-blue-800 font-bold">Itens do Orçamento</h2>
+			<ProductInput />
 		</form>
 	);
 }

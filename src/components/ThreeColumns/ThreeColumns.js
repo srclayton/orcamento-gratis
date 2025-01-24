@@ -11,7 +11,7 @@ function ThreeColumns(props) {
 					name={labels[0].name}
 					id={labels[0].id}
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
-					require={labels[0].required}
+					required={Boolean(labels[0].required)}
 					placeholder={labels[0].placeholder}
 				/>
 			</div>
@@ -24,7 +24,7 @@ function ThreeColumns(props) {
 					name={labels[1].name}
 					id={labels[1].id}
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
-					required={labels[1].required}
+					required={Boolean(labels[1].required)}
 					placeholder={labels[1].placeholder}
 				/>
 			</div>
@@ -37,7 +37,7 @@ function ThreeColumns(props) {
 					name={labels[2].name}
 					id={labels[2].id}
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
-					required={labels[2].required}
+					required={Boolean(labels[2].required)}
 					placeholder={labels[2].placeholder}
 				/>
 			</div>
