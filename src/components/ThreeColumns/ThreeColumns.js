@@ -1,5 +1,16 @@
+import { useState } from "react";
+import { phoneApplyMask } from "../../utils/masks";
 function ThreeColumns(props) {
 	const { data } = props;
+	const [value, setValue] = useState("");
+
+	function handleChange(event) {
+		const { value } = event.target;
+		const onlyNumbers = value.replace(/\D/g, "");
+		if (onlyNumbers.length > 11) return;
+		return setValue(phoneApplyMask(onlyNumbers));
+	}
+
 	return (
 		<div className="flex flex-wrap gap-4 p-3">
 			<div className="w-full md:w-2/5">
@@ -20,6 +31,8 @@ function ThreeColumns(props) {
 					{data[1].title} {data[1].required && "*"}
 				</label>
 				<input
+					value={value}
+					onChange={handleChange}
 					type={data[1].type}
 					name={data[1].name}
 					id={data[1].id}

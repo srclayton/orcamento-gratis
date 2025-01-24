@@ -6,6 +6,7 @@ export const issuerNameAndId = [
 		id: "company",
 		name: "company",
 		placeholder: "Nome do prestador",
+		hasMask: false,
 	},
 	{
 		title: "CPF / CNPJ",
@@ -14,6 +15,8 @@ export const issuerNameAndId = [
 		id: "cpfOrCnpj",
 		name: "cpfOrCnpj",
 		placeholder: "000.000.000-00",
+		hasMask: true,
+		mask: "id",
 	},
 ];
 
@@ -103,6 +106,8 @@ export const clientNameAndId = [
 		id: "clientCpfOrCnpj",
 		name: "clientCpfOrCnpj",
 		placeholder: "000.000.000-00",
+		hasMask: true,
+		mask: "id",
 	},
 ];
 
@@ -122,6 +127,8 @@ export const clientEmailAndPhone = [
 		id: "clientPhone",
 		name: "clientPhone",
 		placeholder: "(41)99999-9999",
+		hasMask: true,
+		mask: "phone",
 	},
 ];
 

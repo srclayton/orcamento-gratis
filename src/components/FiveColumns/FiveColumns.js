@@ -1,5 +1,17 @@
+import { useState } from "react";
+import { cepApplyMask } from "../../utils/masks";
 function FiveColumns(props) {
 	const { data } = props;
+	const [value, setValue] = useState("");
+
+	function handleChange(event) {
+		const { value } = event.target;
+		const onlyNumbers = value.replace(/\D/g, "");
+		if (onlyNumbers.length > 8) return;
+		console.log(onlyNumbers);
+
+		return setValue(cepApplyMask(onlyNumbers));
+	}
 	return (
 		<div className="flex flex-wrap gap-5 p-3">
 			<div className="w-full md:w-1/6">
@@ -7,6 +19,8 @@ function FiveColumns(props) {
 					{data[0].title} {data[0].required && "*"}
 				</label>
 				<input
+					value={value}
+					onChange={handleChange}
 					type={data[0].type}
 					name={data[0].name}
 					id={data[0].id}
