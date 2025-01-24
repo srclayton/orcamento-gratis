@@ -24,7 +24,7 @@ function ProductInput() {
 
 		setFormData((prevState) => {
 			const updatedFormData = { ...prevState, [name]: value };
-			let { quantity, price, discount, total } = updatedFormData;
+			let { price, discount, total } = updatedFormData;
 			price = moneyApplyMask(price);
 			discount = moneyApplyMask(discount);
 
