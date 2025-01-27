@@ -1,8 +1,10 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import Modal from "../Modal/Modal";
 import { moneyApplyMask } from "../../utils/masks";
 
-function ProductInput() {
+function ProductInput(props) {
+	const { data, setData } = props;
+
 	const [formData, setFormData] = useState({
 		productService: "",
 		quantity: 0,
@@ -10,6 +12,17 @@ function ProductInput() {
 		discount: "0",
 		total: "0",
 	});
+
+	const [modalAlert, setModalAlert] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
+
+	// Add useEffect for cleanup
+	useEffect(() => {
+		return () => {
+			setModalAlert(false);
+			setErrorMessage("");
+		};
+	}, []);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -46,15 +59,48 @@ function ProductInput() {
 			updatedFormData.price = price;
 			updatedFormData.discount = discount;
 			updatedFormData.total = total;
-			if (discount > grossAmount) window.alert("alguma coisa");
+			if (discount > grossAmount) {
+				setErrorMessage("Desconto não pode ser maior que o valor total");
+				setModalAlert(true);
+				return prevState;
+			}
 			return updatedFormData;
 		});
 	};
 	const handleAddProduct = () => {
-		console.log("Product added", formData);
+		if (formData.productService === "") {
+			setErrorMessage("Produto/Serviço é obrigatório");
+			setModalAlert(true);
+			return;
+		} else if (formData.price === null) {
+			setErrorMessage("Preço é obrigatório");
+			setModalAlert(true);
+			return;
+		} else if (formData.quantity <= 0) {
+			setErrorMessage("Quantidade deve ser maior que zero");
+			setModalAlert(true);
+			return;
+		} else if (formData.total === "") {
+			setErrorMessage("Total não pode ser zero");
+			setModalAlert(true);
+			return;
+		}
+
+		setData([...data, formData]);
+		setFormData({
+			productService: "",
+			quantity: 0,
+			price: "0",
+			discount: "0",
+			total: "0",
+		});
 	};
+
 	return (
 		<div className="flex flex-wrap gap-5 p-3">
+			{modalAlert && (
+				<Modal closeModal={setModalAlert} message={errorMessage} />
+			)}
 			<div className="w-full">
 				<label htmlFor="company" className="text-blue-800">
 					Produto / Serviço *
@@ -83,6 +129,7 @@ function ProductInput() {
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
 					required={true}
 					placeholder="0"
+					min={1}
 				/>
 			</div>
 			<div className="w-2/12">

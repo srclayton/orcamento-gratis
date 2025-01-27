@@ -8,8 +8,6 @@ function FiveColumns(props) {
 		const { value } = event.target;
 		const onlyNumbers = value.replace(/\D/g, "");
 		if (onlyNumbers.length > 8) return;
-		console.log(onlyNumbers);
-
 		return setValue(cepApplyMask(onlyNumbers));
 	}
 	return (
