@@ -36,6 +36,7 @@ export const issuerEmailAndPhone = [
 		id: "issuerPhone",
 		name: "issuerPhone",
 		placeholder: "(41)99999-9999",
+		hasMask: true,
 	},
 	{
 		title: "Site",
@@ -55,6 +56,7 @@ export const issuerAddress = [
 		id: "issuerCep",
 		name: "issuerCep",
 		placeholder: "00000-000",
+		hasMask: true,
 	},
 	{
 		title: "Logradouro",
@@ -140,6 +142,7 @@ export const clientAddress = [
 		id: "clientCep",
 		name: "clientCep",
 		placeholder: "00000-000",
+		hasMask: true,
 	},
 	{
 		title: "Logradouro",
