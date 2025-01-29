@@ -14,7 +14,7 @@ function ThreeColumns(props) {
 	return (
 		<div className="flex flex-wrap gap-4 p-3">
 			<div className="w-full md:w-2/5">
-				<label htmlFor="company" className="text-blue-800">
+				<label htmlFor={data[0].name} className="text-blue-800">
 					{data[0].title} {data[0].required && "*"}
 				</label>
 				<input
@@ -27,7 +27,7 @@ function ThreeColumns(props) {
 				/>
 			</div>
 			<div className="w-full md:w-2/12">
-				<label htmlFor="cpfOrCnpj" className="text-blue-800">
+				<label htmlFor={data[1].name} className="text-blue-800">
 					{data[1].title} {data[1].required && "*"}
 				</label>
 				<input
@@ -42,7 +42,7 @@ function ThreeColumns(props) {
 				/>
 			</div>
 			<div className="w-full flex-1 pl-2">
-				<label htmlFor="cpfOrCnpj" className="text-blue-800">
+				<label htmlFor={data[2].name} className="text-blue-800">
 					{data[2].title} {data[2].required && "*"}
 				</label>
 				<input
