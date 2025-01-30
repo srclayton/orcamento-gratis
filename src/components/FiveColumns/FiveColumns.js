@@ -1,12 +1,23 @@
 import { useState } from "react";
 import { cepApplyMask } from "../../utils/masks";
+import cepApi from "../../lib/api";
 function FiveColumns(props) {
-	const { data } = props;
+	const { data, identifier } = props;
 	const [value, setValue] = useState("");
 
 	function handleChange(event) {
 		const { value } = event.target;
 		const onlyNumbers = value.replace(/\D/g, "");
+		if (onlyNumbers.length === 8) {
+			cepApi.get(`${onlyNumbers}/json`).then((response) => {
+				const { data } = response;
+				if (data.erro) return;
+				document.getElementById(`${identifier}Logradouro`).value =
+					data.logradouro;
+				document.getElementById(`${identifier}District`).value = data.bairro;
+				document.getElementById(`${identifier}State`).value = data.uf;
+			});
+		}
 		if (onlyNumbers.length > 8) return;
 		return setValue(cepApplyMask(onlyNumbers));
 	}

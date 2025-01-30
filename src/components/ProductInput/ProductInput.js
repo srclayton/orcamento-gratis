@@ -112,7 +112,6 @@ function ProductInput(props) {
 					name="productService"
 					id="productService"
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
-					required={true}
 					placeholder="Produto ou serviço"
 				/>
 			</div>
@@ -127,7 +126,6 @@ function ProductInput(props) {
 					name="quantity"
 					id="quantity"
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
-					required={true}
 					placeholder="0"
 					min={1}
 				/>
@@ -143,7 +141,6 @@ function ProductInput(props) {
 					name="price"
 					id="price"
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
-					required={true}
 					placeholder="0.00"
 				/>
 			</div>
