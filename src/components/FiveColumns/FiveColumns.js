@@ -14,7 +14,7 @@ function FiveColumns(props) {
 				if (data.erro) return;
 				document.getElementById(`${identifier}Logradouro`).value =
 					data.logradouro;
-				document.getElementById(`${identifier}District`).value = data.bairro;
+				document.getElementById(`${identifier}City`).value = data.localidade;
 				document.getElementById(`${identifier}State`).value = data.uf;
 			});
 		}

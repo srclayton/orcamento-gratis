@@ -67,7 +67,7 @@ export const issuerAddress = [
 		placeholder: "Rua, Avenida, etc.",
 	},
 	{
-		title: "Número",
+		title: "N°",
 		required: true,
 		type: "text",
 		id: "issuerNumber",
@@ -75,12 +75,12 @@ export const issuerAddress = [
 		placeholder: "123",
 	},
 	{
-		title: "Bairro",
+		title: "Cidade",
 		required: true,
 		type: "text",
-		id: "issuerDistrict",
-		name: "issuerDistrict",
-		placeholder: "Bairro",
+		id: "issuerCity",
+		name: "issuerCity",
+		placeholder: "Cidade",
 	},
 	{
 		title: "Estado",
@@ -153,7 +153,7 @@ export const clientAddress = [
 		placeholder: "Rua, Avenida, etc.",
 	},
 	{
-		title: "Número",
+		title: "N°",
 		required: false,
 		type: "text",
 		id: "clientNumber",
@@ -161,12 +161,12 @@ export const clientAddress = [
 		placeholder: "123",
 	},
 	{
-		title: "Bairro",
-		required: false,
+		title: "Cidade",
+		required: true,
 		type: "text",
-		id: "clientDistrict",
-		name: "clientDistrict",
-		placeholder: "Bairro",
+		id: "clientCity",
+		name: "clientCity",
+		placeholder: "Cidade",
 	},
 	{
 		title: "Estado",
