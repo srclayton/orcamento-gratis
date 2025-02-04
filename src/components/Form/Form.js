@@ -13,15 +13,21 @@ import ProductInput from "../ProductInput/ProductInput";
 import Table from "../Table/Table";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Form() {
 	const [items, setItems] = useState([]);
-
+	const navigate = useNavigate();
 	function handleSubmit(event) {
 		event.preventDefault();
 
 		const form = event.target; // Acessa o formulário enviado
 		const formData = new FormData(form); // Cria um FormData com os dados do formulário
-		console.log(`Form submitted:${formData}`);
+		navigate("/quotation", {
+			state: {
+				formData: formData,
+				items: items,
+			},
+		});
 	}
 	return (
 		<form
