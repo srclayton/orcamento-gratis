@@ -1,5 +1,5 @@
 function Table(props) {
-	const { data } = props;
+	const { data, setData } = props;
 	//eslint-disable-next-line
 	let total = 0;
 	return (
@@ -12,6 +12,7 @@ function Table(props) {
 					<th>Valor Unitário</th>
 					<th>Desconto</th>
 					<th>Valor Total</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,12 +24,26 @@ function Table(props) {
 						<td>{item.price}</td>
 						<td>{item.discount}</td>
 						<td>{item.total}</td>
+						<td>
+							<button
+								type="button"
+								className="text-red-500 font-bold text-lg px-2"
+								onClick={() => {
+									if (setData) {
+										setData(data.filter((_, i) => i !== index));
+									}
+								}}
+								aria-label="Remover item"
+							>
+								×
+							</button>
+						</td>
 					</tr>
 				))}
 			</tbody>
 			<tfoot>
 				<tr className="bg-slate-100 text-blue-800">
-					<td colSpan="5">Total</td>
+					<td colSpan="6">Total</td>
 					<td>
 						{data.map((item) => {
 							total += parseFloat(
