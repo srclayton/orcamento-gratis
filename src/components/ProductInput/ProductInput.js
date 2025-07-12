@@ -59,7 +59,7 @@ function ProductInput(props) {
 			updatedFormData.price = price;
 			updatedFormData.discount = discount;
 			updatedFormData.total = total;
-			if (discount > grossAmount) {
+			if (discount > grossAmount || discountOrZero > grossAmount) {
 				setErrorMessage("Desconto não pode ser maior que o valor total");
 				setModalAlert(true);
 				return prevState;
@@ -127,7 +127,7 @@ function ProductInput(props) {
 					id="quantity"
 					className="w-full p-2 border-2 border-none rounded-lg bg-slate-100"
 					placeholder="0"
-					min={1}
+					min={0}
 				/>
 			</div>
 			<div className="w-2/12">
