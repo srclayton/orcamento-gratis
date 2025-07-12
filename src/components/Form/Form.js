@@ -7,7 +7,7 @@ import {
 	issuerAddress,
 	clientNameAndId,
 	clientEmailAndPhone,
-	clientAddress,
+	clientAddress
 } from "./constants";
 import ProductInput from "../ProductInput/ProductInput";
 import Table from "../Table/Table";
@@ -20,11 +20,18 @@ function Form() {
 	function handleSubmit(event) {
 		event.preventDefault();
 
-		const form = event.target; // Acessa o formulário enviado
-		const formData = new FormData(form); // Cria um FormData com os dados do formulário
+		const form = event.target;
+		const formData = new FormData(form);
+
+		// Converte FormData para objeto simples
+		const formObj = {};
+		for (const [key, value] of formData.entries()) {
+			formObj[key] = value;
+		}
+
 		navigate("/quotation", {
 			state: {
-				formData: formData,
+				formData: formObj,
 				items: items,
 			},
 		});
@@ -53,7 +60,7 @@ function Form() {
 			<div className="w-2/3 mx-auto py-10">
 				<hr />
 			</div>
-			<Table data={items} />
+			<Table data={items} setData={setItems} />
 			<div className="w-2/3 mx-auto py-10">
 				<hr />
 			</div>

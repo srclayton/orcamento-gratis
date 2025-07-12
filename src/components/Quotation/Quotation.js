@@ -23,19 +23,19 @@ function Quotation() {
 			>
 				<div className="mt-12 flex border-l-4 border-blue-400 justify-center items-center pl-4">
 					<div className="w-full md:w-2/3 ">
-						<p className="uppercase font-bold text-2xl">
-							{formData.get("issuer")}
-							<br />
-							{formData.get("issuerCpfOrCnpj")}
-						</p>
-						<p>
-							{formData.get("issuerLogradouro")}, {formData.get("issuerNumber")}{" "}
-							- {formData.get("issuerCity")} - {formData.get("issuerState")}
-						</p>
-						<p>
-							{formData.get("issuerEmail")} - {formData.get("issuerPhone")}
-						</p>
-						<p>{formData.get("site")}</p>
+					<p className="uppercase font-bold text-2xl">
+						{formData.issuer}
+						<br />
+						{formData.issuerCpfOrCnpj}
+					</p>
+					<p>
+						{formData.issuerLogradouro}, {formData.issuerNumber} {" "}
+						- {formData.issuerCity} - {formData.issuerState}
+					</p>
+					<p>
+						{formData.issuerEmail} - {formData.issuerPhone}
+					</p>
+					<p>{formData.site}</p>
 					</div>
 					<div className="w-full md:flex-1 flex flex-col items-end">
 						<p>
@@ -64,18 +64,18 @@ function Quotation() {
 				</div>
 				<div className="mt-10 flex items-stretch">
 					<div className="w-full md:w-2/3">
-						<p className="uppercase font-bold text-lg">
-							{formData.get("client")}
-							<br />
-							{formData.get("clientCpfOrCnpj")}
-						</p>
-						<p>
-							{formData.get("clientLogradouro")}, {formData.get("clientNumber")}{" "}
-							- {formData.get("clientCity")} - {formData.get("clientState")}
-						</p>
-						<p>
-							{formData.get("clientEmail")} - {formData.get("clientPhone")}
-						</p>
+					<p className="uppercase font-bold text-lg">
+						{formData.client}
+						<br />
+						{formData.clientCpfOrCnpj}
+					</p>
+					<p>
+						{formData.clientLogradouro}, {formData.clientNumber} {" "}
+						- {formData.clientCity} - {formData.clientState}
+					</p>
+					<p>
+						{formData.clientEmail} - {formData.clientPhone}
+					</p>
 					</div>
 					<div className="w-full md:flex-1 flex flex-col items-end">
 						<p>Validade: 30 dias</p>
@@ -135,12 +135,12 @@ function Quotation() {
 				<div className="mt-16 flex  items-stretch">
 					<div className="w-full md:w-1/2 flex flex-col items-center justify-center">
 						<hr className="w-1/2" />
-						<p>{formData.get("issuer")}</p>
+					<p>{formData.issuer}</p>
 					</div>
 
 					<div className="w-full md:flex-1 flex flex-col items-center justify-center">
 						<hr className="w-1/2" />
-						<p className="font-bold">{formData.get("client")}</p>
+					<p className="font-bold">{formData.client}</p>
 					</div>
 				</div>
 			</div>
